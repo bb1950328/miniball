@@ -58,6 +58,35 @@ namespace SEB_NAMESPACE {
     }
   }
 
+#ifdef _MSC_VER
+  inline timeval& operator-=(timeval &t1,const timeval &t2)
+  {
+    return 0;
+  }
+
+  Timer::Timer()
+  {
+  }
+
+  Timer& Timer::instance()
+  {
+    // Here's where we maintain the only instance: (Notice that it
+    // gets constructed automatically the first time instance() is
+    // called, and that it gets disposed of (if ever contructed) at
+    // program termination.)
+    static Timer instance;
+    return instance;
+  }
+
+  void Timer::start(const char *timer_name)
+  {
+  }
+
+  float Timer::lapse(const char *name)
+  {
+    return 0;
+  }
+#else
   // Implementation of class Timer:
 
   // The following routine is taken from file mptimeval.h from
@@ -119,5 +148,5 @@ namespace SEB_NAMESPACE {
     now.ru_utime -= (*timers.find(std::string(name))).second;
     return now.ru_utime.tv_sec + now.ru_utime.tv_usec * 1e-6;
   }
-
+#endif
 } // namespace SEB_NAMESPACE
