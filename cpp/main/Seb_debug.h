@@ -12,7 +12,7 @@
 
 #ifdef _MSC_VER
 namespace SEB_NAMESPACE {
-    using TimeVal = unsigned int
+    using TimeVal = unsigned int;
 }
 #else
     #include <sys/resource.h>

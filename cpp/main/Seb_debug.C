@@ -59,17 +59,14 @@ namespace SEB_NAMESPACE {
   }
 
 #ifdef _MSC_VER
-  inline timeval& operator-=(timeval &t1,const timeval &t2)
-  {
-    return 0;
+  inline timeval& operator-=(timeval& t1, const timeval& t2) {
+    return t1;
   }
 
-  Timer::Timer()
-  {
+  Timer::Timer() {
   }
 
-  Timer& Timer::instance()
-  {
+  Timer& Timer::instance() {
     // Here's where we maintain the only instance: (Notice that it
     // gets constructed automatically the first time instance() is
     // called, and that it gets disposed of (if ever contructed) at
@@ -78,12 +75,10 @@ namespace SEB_NAMESPACE {
     return instance;
   }
 
-  void Timer::start(const char *timer_name)
-  {
+  void Timer::start(const char* timer_name) {
   }
 
-  float Timer::lapse(const char *name)
-  {
+  float Timer::lapse(const char* name) {
     return 0;
   }
 #else
